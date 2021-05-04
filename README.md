@@ -8,7 +8,7 @@
 * this token created with truffle framwork and tested in a local virtual instance of EVM.
 * try it : 
 
-    -   install truffle 
+    -   install truffle ```npm install -g truffle```
     -   clone the repo ``` git clone``` for cloning the repo.
     -   create new project .
     -   execute ```truffle compile``` for compiling contracts.
