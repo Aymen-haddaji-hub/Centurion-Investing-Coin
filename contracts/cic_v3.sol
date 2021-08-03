@@ -56,9 +56,9 @@ contract cic is IERC20, SafeMath {
     constructor() public payable {
         name = "Centurion_invest_coin";
         symbol = "CIC";
-        decimals = 18;
+        decimals = 2;
         owner = msg.sender;
-        _totalSupply = 123659874521599666677777777 * 10 ** uint256(decimals);   // 24 decimals 
+        _totalSupply = 7777 * 10 ** uint256(decimals);   // 24 decimals 
         balances[msg.sender] = _totalSupply;
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
