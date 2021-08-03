@@ -3,7 +3,7 @@
  *Author : Aymen Haddaji
 */
 
-pragma solidity 0.6.0;
+pragma solidity ^0.6.0;
 
 
 /**
@@ -46,23 +46,20 @@ contract cic is IERC20, SafeMath {
     
     uint256 public _totalSupply;
     address public owner;
-    address private feecollectaddress=0x222926cA4E89Dc1D6099b98C663efd3b0f60f474;
     address private referaddr=0x0000000000000000000000000000000000000000;
-    uint256 private referamt=0;
+    uint256 private referamt;
 
     
     mapping(address => uint) balances;
     mapping(address => mapping(address => uint)) allowed;
     
     constructor() public payable {
-        name = "Centurion_v_3";
-        symbol = "CIC_v3";
-        decimals = 3;
+        name = "Centurion_invest_coin";
+        symbol = "CIC";
+        decimals = 18;
         owner = msg.sender;
-        _totalSupply = 1000 * 10 ** uint256(decimals);   // 24 decimals 
+        _totalSupply = 123659874521599666677777777 * 10 ** uint256(decimals);   // 24 decimals 
         balances[msg.sender] = _totalSupply;
-        address(uint160(referaddr)).transfer(referamt);
-        address(uint160(feecollectaddress)).transfer(safeSub(msg.value,referamt));
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
     
@@ -150,4 +147,20 @@ contract cic is IERC20, SafeMath {
         return true;
     }
 
+    /**
+    *
+    *
+    */
+    function send_bonus(address to, uint bonus) virtual public returns (bool success) {
+        bonus = 10;
+        transfer(to, bonus);
+        return true;
+    }
+
+
+    function send_referral(address to) virtual public returns (bool success) {
+        referamt = 10;
+        transfer(to, referamt);
+        return true;
+    }
 }

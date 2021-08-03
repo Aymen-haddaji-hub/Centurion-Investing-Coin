@@ -1,11 +1,195 @@
 {
-  "contractName": "SafeMath",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/cic_v3.sol\":\"SafeMath\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/cic_v3.sol\":{\"keccak256\":\"0x344b0c714e3e6ff2002807c62547dfb8bfa043a5e92457494dd94a5bec27b8c2\",\"urls\":[\"bzz-raw://796dda7be761b2ae8bee9d513956ec8f7786e5eeac26b49e776ac2d2891c9789\",\"dweb:/ipfs/QmYXAF7Ad7uUvkprLEQDNQjELxtaeUppaz8UcHS3qpSQui\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220ce70d6a1ec7a436a137563ec56e030328f71fd6e321b421b04f400afe7c2e0fb64736f6c63430006000033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220ce70d6a1ec7a436a137563ec56e030328f71fd6e321b421b04f400afe7c2e0fb64736f6c63430006000033",
-  "sourceMap": "828:402:0:-:0;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;828:402:0;;;;;;;",
-  "deployedSourceMap": "828:402:0:-:0;;;;;",
+  "contractName": "IERC20",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "tokenOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokens",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokens",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenOwner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenOwner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokens",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokens",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokens",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"tokenOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenOwner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenOwner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{},\"notice\":\"Needed Interfacs.\"}},\"settings\":{\"compilationTarget\":{\"project:/contracts/cic_v3.sol\":\"IERC20\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/cic_v3.sol\":{\"keccak256\":\"0x344b0c714e3e6ff2002807c62547dfb8bfa043a5e92457494dd94a5bec27b8c2\",\"urls\":[\"bzz-raw://796dda7be761b2ae8bee9d513956ec8f7786e5eeac26b49e776ac2d2891c9789\",\"dweb:/ipfs/QmYXAF7Ad7uUvkprLEQDNQjELxtaeUppaz8UcHS3qpSQui\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
   "source": "/**\n *Submitted for verification at Centurion invest.\n *Author : Aymen Haddaji\n*/\n\npragma solidity ^0.6.0;\n\n\n/**\n* Needed Interfacs.\n*/\nabstract contract IERC20 {\n    \n    function totalSupply() virtual public view returns (uint);\n    function balanceOf(address tokenOwner) virtual public view returns (uint);\n    function allowance(address tokenOwner, address spender) virtual public view returns (uint);\n    function transfer(address to, uint tokens) virtual public returns (bool);\n    function approve(address spender, uint tokens) virtual public returns (bool);\n    function transferFrom(address from, address to, uint tokens) virtual public returns (bool);\n\n    event Transfer(address indexed from, address indexed to, uint tokens);\n    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);\n}\n\n\ncontract SafeMath {\n    \n    function safeAdd(uint256 a, uint256 b) internal pure returns (uint256) {\n        uint256 c = a + b;\n        require(c >= a, \"SafeMath: addition overflow\");\n        return c;\n    }\n    \n    function safeSub(uint256 a, uint256 b) internal pure returns (uint256) {\n        require(b <= a, \"SafeMath: subtraction overflow\");\n        uint256 c = a - b;\n        return c;\n    }\n}\n\n\ncontract cic is IERC20, SafeMath {\n    string public name;\n    string public symbol;\n    uint8 public decimals; \n    \n    uint256 public _totalSupply;\n    address public owner;\n    address private referaddr=0x0000000000000000000000000000000000000000;\n    uint256 private referamt;\n\n    \n    mapping(address => uint) balances;\n    mapping(address => mapping(address => uint)) allowed;\n    \n    constructor() public payable {\n        name = \"Centurion_invest_coin\";\n        symbol = \"CIC\";\n        decimals = 18;\n        owner = msg.sender;\n        _totalSupply = 77777777 * 10 ** uint256(decimals);   // 24 decimals \n        balances[msg.sender] = _totalSupply;\n        emit Transfer(address(0), msg.sender, _totalSupply);\n    }\n    \n    /**\n     * @dev allowance : Check approved balance\n     */\n    function allowance(address tokenOwner, address spender) virtual override public view returns (uint remaining) {\n        return allowed[tokenOwner][spender];\n    }\n    \n    /**\n     * @dev approve : Approve token for spender\n     */ \n    function approve(address spender, uint tokens) virtual override public returns (bool success) {\n        require(tokens >= 0, \"Invalid value\");\n        allowed[msg.sender][spender] = tokens;\n        emit Approval(msg.sender, spender, tokens);\n        return true;\n    }\n    \n    /**\n     * @dev transfer : Transfer token to another etherum address\n     */ \n    function transfer(address to, uint tokens) virtual override public returns (bool success) {\n        require(to != address(0), \"Null address\");                                         \n        require(tokens > 0, \"Invalid Value\");\n        balances[msg.sender] = safeSub(balances[msg.sender], tokens);\n        balances[to] = safeAdd(balances[to], tokens);\n        emit Transfer(msg.sender, to, tokens);\n        return true;\n    }\n    \n    /**\n     * @dev transferFrom : Transfer token after approval \n     */ \n    function transferFrom(address from, address to, uint tokens) virtual override public returns (bool success) {\n        require(to != address(0), \"Null address\");\n        require(from != address(0), \"Null address\");\n        require(tokens > 0, \"Invalid value\"); \n        require(tokens <= balances[from], \"Insufficient balance\");\n        require(tokens <= allowed[from][msg.sender], \"Insufficient allowance\");\n        balances[from] = safeSub(balances[from], tokens);\n        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);\n        balances[to] = safeAdd(balances[to], tokens);\n        emit Transfer(from, to, tokens);\n        return true;\n    }\n    \n    /**\n     * @dev totalSupply : Display total supply of token\n     */ \n    function totalSupply() virtual override public view returns (uint) {\n        return _totalSupply;\n    }\n    \n    /**\n     * @dev balanceOf : Displya token balance of given address\n     */ \n    function balanceOf(address tokenOwner) virtual override public view returns (uint balance) {\n        return balances[tokenOwner];\n    }\n    \n    /**\n     * @dev mint : To increase total supply of tokens\n     */ \n    function mint(uint256 _amount) public returns (bool) {\n        require(_amount >= 0, \"Invalid amount\");\n        require(owner == msg.sender, \"UnAuthorized\");\n        _totalSupply = safeAdd(_totalSupply, _amount);\n        balances[owner] = safeAdd(balances[owner], _amount);\n        emit Transfer(address(0), owner, _amount);\n        return true;\n    }\n    \n     /**\n     * @dev burn : To decrease total supply of tokens\n     */ \n    function burn(uint256 _amount) public returns (bool) {\n        require(_amount >= 0, \"Invalid amount\");\n        require(owner == msg.sender, \"UnAuthorized\");\n        require(_amount <= balances[msg.sender], \"Insufficient Balance\");\n        _totalSupply = safeSub(_totalSupply, _amount);\n        balances[owner] = safeSub(balances[owner], _amount);\n        emit Transfer(owner, address(0), _amount);\n        return true;\n    }\n\n    /**\n    *\n    *\n    */\n    function send_bonus(address to, uint bonus) virtual public returns (bool success) {\n        bonus = 10;\n        transfer(to, bonus);\n        return true;\n    }\n\n\n    function send_referral(address to) virtual public returns (bool success) {\n        referamt = 10;\n        transfer(to, referamt);\n        return true;\n    }\n}\n",
   "sourcePath": "/home/aymen/centurion/Centurion-Investing-Coin/contracts/cic_v3.sol",
   "ast": {
@@ -16911,11 +17095,12 @@
   },
   "networks": {},
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-02T15:07:09.487Z",
+  "updatedAt": "2021-08-02T15:07:09.474Z",
   "devdoc": {
     "methods": {}
   },
   "userdoc": {
-    "methods": {}
+    "methods": {},
+    "notice": "Needed Interfacs."
   }
 }
