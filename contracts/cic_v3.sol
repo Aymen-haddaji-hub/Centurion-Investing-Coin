@@ -47,7 +47,6 @@ contract cic is IERC20, SafeMath {
     uint256 public _totalSupply;
     address public owner;
     address private referaddr=0x0000000000000000000000000000000000000000;
-    uint256 private referamt;
 
     
     mapping(address => uint) balances;
@@ -58,7 +57,7 @@ contract cic is IERC20, SafeMath {
         symbol = "CIC";
         decimals = 2;
         owner = msg.sender;
-        _totalSupply = 7777 * 10 ** uint256(decimals);   // 24 decimals 
+        _totalSupply = 7777 * 10 ** uint256(decimals);   // n decimals 
         balances[msg.sender] = _totalSupply;
         emit Transfer(address(0), msg.sender, _totalSupply);
     }
@@ -156,14 +155,12 @@ contract cic is IERC20, SafeMath {
     *
     */
     function send_bonus(address to, uint bonus) virtual public returns (bool success) {
-        bonus = 10;
         transfer(to, bonus);
         return true;
     }
 
 
-    function send_referral(address to) virtual public returns (bool success) {
-        referamt = 10;
+    function send_referral(address to, uint referamt) virtual public returns (bool success) {
         transfer(to, referamt);
         return true;
     }
