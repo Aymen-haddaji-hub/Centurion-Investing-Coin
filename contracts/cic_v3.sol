@@ -7,7 +7,7 @@ pragma solidity ^0.6.0;
 
 
 /**
-* Needed Interfacs.
+* Needed Interfacs.s
 */
 abstract contract IERC20 {
     
